@@ -1,0 +1,103 @@
+<html>
+
+<head>
+        <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script>
+        // register your component here with a name
+        AFRAME.registerComponent('hello-world', {
+            schema: {
+                message: {
+                    type: 'string',
+                    default: 'Hello, World!'
+                },
+                amount: {
+                    type: 'number',
+                    default: 1
+                },
+                color: {
+                    type: 'color',
+                    default: 'red'
+                },
+            },
+            init: function () {
+                for (var i = 0; i < this.data.amount; i++) {
+                    var box = document.createElement('a-image');
+                    box.setAttribute('src', '#my-image');
+                    box.setAttribute('position', '0 ' + i * 1.1 + ' -2');
+                    // box.setAttribute('scale', '1 1 1');
+                    this.el.appendChild(box);
+                }
+            }
+        });
+
+                // register your component here with a name
+                AFRAME.registerComponent('hello-world1', {
+            schema: {
+                message: {
+                    type: 'string',
+                    default: 'Hello, World!'
+                },
+                amount: {
+                    type: 'number',
+                    default: 1
+                },
+                color: {
+                    type: 'color',
+                    default: 'red'
+                },
+            },
+            init: function () {
+                for (var i = 0; i < this.data.amount; i++) {
+                    var box = document.createElement('a-curvedimage');
+                    box.setAttribute('src', '#my-image2');
+                    box.setAttribute('position', '0 ' + i * 1.1 + ' -2');
+                    // box.setAttribute('scale', '1 1 1');
+
+
+                    this.el.appendChild(box);
+                }
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+    <a-scene>
+            <a-assets>
+                    <img id="my-image" src="img/campylobacte.jpg">
+                    <img id="my-image2" src="img/humanvirus.jpg">
+                  </a-assets>
+        <!-- Attach components to an entity tag by adding the name -->
+        <a-entity hello-world="amount: 1000;" position="-1 2 0" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: 2 2 0;"></a-entity>
+
+        <a-entity hello-world="amount: 1000;" position="-4 2 0" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity hello-world1="amount: 1000;" position="5 2 -1" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity hello-world1="amount: 1000;" position="-3 2 -1" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity hello-world="amount: 1000;" position="4 2 0"></a-entity>
+
+
+        <!-- <a-entity hello-world="message: 'what's up; amount: 50; color: grey" position="0 2 0"></a-entity>
+        </a-entity>
+
+        <a-entity hello-world="message: 'great news'; amount: 1000; color: teal" position="1 2 0"></a-entity> -->
+        </a-entity>
+        <!-- uncomment to pass an argument -->
+        <!-- <a-entity hello-world=" message: cool news! " position="0 2 -4 "> -->
+        <!-- 
+            <a-entity camera look-controls wasd-controls></a-entity> -->
+        <a-plane rotation="-90 0 0" color="red" width="50" height="50"></a-plane>
+
+    </a-scene>
+</body>
+<script>
+</script>
+
+</html>

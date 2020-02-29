@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello, WebVR! • A-Frame</title>
+  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <!-- add aframe extras -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+
+  <script>
+    // register your component here with a name
+    AFRAME.registerComponent('virus', {
+        schema: {
+            message: {
+                type: 'string',
+                default: 'virus'
+            },
+            amount: {
+                type: 'number',
+                default: 1
+            },
+            color: {
+                type: 'color',
+                default: 'red'
+            },
+        },
+        init: function () {
+            for (var i = 0; i < this.data.amount; i++) {
+                var box = document.createElement('a-image');
+                box.setAttribute('src', '#my-image');
+                box.setAttribute('position', '0 ' + i * 1.1 + ' -2');
+                // box.setAttribute('scale', '1 1 1');
+                this.el.appendChild(box);
+            }
+        }
+    });
+
+            // register your component here with a name
+            AFRAME.registerComponent('virus1', {
+        schema: {
+            message: {
+                type: 'string',
+                default: 'virus1'
+            },
+            amount: {
+                type: 'number',
+                default: 1
+            },
+            color: {
+                type: 'color',
+                default: 'red'
+            },
+        },
+        init: function () {
+            for (var i = 0; i < this.data.amount; i++) {
+                var box = document.createElement('a-curvedimage');
+                box.setAttribute('src', '#my-image2');
+                box.setAttribute('position', '0 ' + i * 1.1 + ' -2');
+                // box.setAttribute('scale', '1 1 1');
+
+
+                this.el.appendChild(box);
+            }
+        }
+    });
+</script>
+
+</head>
+
+<body>
+  <a-scene>
+      <a-camera position="0 3 1"></a-camera>
+    <a-assets>
+      <a-asset-item id="room" src="models/moody_lighting_art_gallery_2019/scene.gltf" position="0 -1 0"></a-asset-item>
+      <a-asset-item id="baby" src="models/hulky_baby/scene.gltf"></a-asset-item>
+      <a-asset-item id="insect" src="models/praying_mantis/scene.gltf"></a-asset-item>
+      <a-asset-item id="gun" src="models/space_gun/scene.gltf"></a-asset-item>
+      <a-asset-item id="grass" src="models/chinese_fountain_grass/scene.gltf"></a-asset-item>
+      <a-asset-item id="helmet" src="models/froghelmet/scene.gltf"></a-asset-item>
+
+      <a-asset-item id="armysmile" src="models/house/armysmile.obj"></a-asset-item>
+      <a-asset-item id="as-mtl" src="models/house/armysmile.mtl"></a-asset-item>
+      
+      <a-assets>
+        <img id="my-image" src="img/chinese-virus-spreading-humans.jpg">
+        <img id="my-image2" src="img/XLYIM7UFNBFKDN55X3FNGBUREY.jpg">
+      </a-assets>
+
+      <!-- <a-asset-item id="creature" src="assets/models/brain_boss_creature/scene.gltf" position="0 -1 0"> -->
+      </a-asset-item>
+    </a-assets>
+        <!-- Attach components to an entity tag by adding the name -->
+        <!-- <a-entity virus="amount: 10;" position="0 0 -2" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: 2 2 0;"></a-entity>
+
+        <a-entity virus="amount: 10;" position="-4 2 0" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity virus1="amount: 10;" position="5 2 -1" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity virus1="amount: 10;" position="-3 2 -1" animation__fadein="property: position; dur: 10000;
+        easing: linear; to: -4 4 0;"></a-entity>
+
+        <a-entity virus="amount: 10;" position="4 2 0"></a-entity> -->
+
+
+        <!-- <a-entity hello-world="message: 'what's up; amount: 50; color: grey" position="0 2 0"></a-entity>
+        </a-entity>
+
+        <a-entity hello-world="message: 'great news'; amount: 1000; color: teal" position="1 2 0"></a-entity> -->
+        </a-entity>
+        <!-- uncomment to pass an argument -->
+        <!-- <a-entity hello-world=" message: cool news! " position="0 2 -4 "> -->
+        <!-- 
+            <a-entity camera look-controls wasd-controls></a-entity> -->
+        <a-plane rotation="-90 0 0" color="red" width="50" height="50"></a-plane>
+
+<a-entity id="myscene"> 
+
+
+    <a-obj-model src="#armysmile" mtl="#as-mtl" position="9.47832 2 13.42964" rotation="-180 3.452 -180" scale="1.98404 1.70568 1.50914" material="" obj-model="">
+    </a-obj-model>
+
+    <a-gltf-model src="#room" scale="0.1 0.1 0.1" position="-3.02544 -0.17931 47.39248"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="0 2.38171 0" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf " animation="property: position; from:0 10 0; to: 0 2.38171 0; loop: true; dur: 1000; dir: alternate; easing: easeInSine"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="3 2.38171 0" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf" ></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="6 2.38171 0" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf" animation="property: position; from:6 7.38171 0; to: 6 2.38171 0; loop: true; dur: 700; dir: alternate; easing: easeInSine"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-3 2.38171 0" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-6 2.38171 0" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="0 2.38171 -3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="3 2.38171 -3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf" animation="property: rotation; from:180 -6 -180; to:-180 -6 -180; loop: true; dur: 700; dir: alternate; easing: easeInSine"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="6 2.38171 -3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-3 2.38171 -3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-6 2.38171 -3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-6 2.38171 3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-3 2.38171 3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="0 2.38171 3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="3 2.38171 3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="6 2.38171 3" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+
+    
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-6 2.38171 6" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-3 2.38171 6" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="0 2.38171 6" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="3 2.38171 6" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="6 2.38171 6" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+
+    <a-image src="#my-image" material="color: #fc9200; shader: standard; blending: additive; metalness: 0.49" position="-2.05201 -0.25777 -2.32453" geometry="primitive: torusKnot" scale="0.54254 0.52741 -0.17512" visible=""></a-image>
+
+    <!-- <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-6 2.38171 9" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="-3 2.38171 9" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="0 2.38171 9" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="3 2.38171 9" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.47859 0.47859 0.47859" position="6 2.38171 9" rotation="-180 -6 -180" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model> -->
+  
+   <a-entity id="bigbrother">
+    <a-gltf-model src="#baby" scale="0.61125 0.61125 0.61125" position="1.99385 5 17.53719" rotation="0 1.9818610133575176 0" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.61125 0.61125 0.61125" position="1.99385 6 17.53719" rotation="0 1.9818610133575176 0" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#baby" scale="0.61125 0.61125 0.61125" position="1.99385 7 17.53719" rotation="0 1.9818610133575176 0" gltf-model="models/hulky_baby/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#helmet" scale="" position="1.90739 8.9564 16.10378" rotation="5.702648934937083 -175.75193886740436 2.473458801579764" gltf-model="models/froghelmet/scene.gltf"></a-gltf-model>
+  </a-entity>
+
+<a-entity id="armyleader">
+    <a-gltf-model src="#insect" scale="2.17549 2.17549 2.17549" position="-2.24563 0 -4.07499" gltf-model="models/praying_mantis/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#gun" scale="-0.0351 -0.0351 0.04035" position="4.16423 6.49494 -2.36741" gltf-model="models/space_gun/scene.gltf"></a-gltf-model>
+    <a-gltf-model src="#grass" scale="0.05623 0.05623 0.05623" position="0.81625 -0.52967 -14.45998" gltf-model="models/chinese_fountain_grass/scene.gltf"></a-gltf-model>
+</a-entity>
+        <a-entity light="type: directional; color: red; intensity: 1" position="-1 1 1"></a-entity>
+        <a-entity light="type: directional; color: green; intensity: 1" position="1 1 1"></a-entity>
+        <a-entity light="type: directional; color: white; intensity: 1" position="2 1 1"></a-entity>
+        <a-entity id="point" light="type: point; intensity: .7; distance: 35; decay: 2"
+          position="1.99385 7 17.53719"></a-entity>
+  </a-entity>
+
+  <a-plane src="#gndTexture" repeat="1000 1000" position="0 0 -4" scale="500 500 0.00001" rotation="-90 0 0"
+  width="4" height="4" color="#7BC8A4"></a-plane>
+
+<!-- camera with teleport controls -->
+<a-entity id="cameraRig" position="0 0.1 0">
+  <a-entity camera wasd-controls look-controls></a-entity>
+  <a-entity id="rightHand" mixin="teleport" laser-controls="hand: right" vive-controls="hand: right"
+      oculus-go-controls="hand: right"></a-entity>
+  <a-entity id="leftHand" mixin="teleport" laser-controls="hand: left" vive-controls="hand: left"
+      oculus-go-controls="hand: left"></a-entity>
+</a-entity>
+
+
+
+
+
+    <!-- <a-gltf-model src="#creature" scale="0.025 0.025 0.025" position="1.64878 .5 -20" animation-mixer> -->
+
+
+  </a-scene>
+</body>
+
+</html>
